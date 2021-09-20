@@ -15,13 +15,6 @@ def test_bank_count(salary, how_much, mounths, booltf):
     assert res == booltf
 
 
-
-
-# assert bank_count_2(salary=1000, how_much=1000, mounths=12, cost_per_mounth=900) == False
-# assert bank_count_2(salary=1000, how_much=3000, mounths=12, cost_per_mounth=200) == True
-
-
-
 parametrizes_2 = [
     (1000, 1000, 12, 900, False),
     (1000, 3000, 12, 200, True),
@@ -34,3 +27,8 @@ def test_bank_count(salary, how_much, mounths, cost_per_mounth, booltf):
 
 
 
+# Тест будет пропускаться (помечатся как skip если провалиться и проходить как pass в случае выполнения).
+@pytest.mark.xfail()
+def test_xfail():
+    res = sum([1,2,3])
+    assert res == 6
