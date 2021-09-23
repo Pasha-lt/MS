@@ -32,3 +32,10 @@ def test_bank_count(salary, how_much, mounths, cost_per_mounth, booltf):
 def test_xfail():
     res = sum([1,2,3])
     assert res == 6
+
+
+# Тест будет пропускаться и отображаться как skipped.
+@pytest.mark.skip()
+def test_skip():
+    res = sum([1, 2, 5])
+    assert res == 6
