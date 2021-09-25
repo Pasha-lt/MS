@@ -35,7 +35,20 @@ def test_xfail():
 
 
 # Тест будет пропускаться и отображаться как skipped.
-@pytest.mark.skip()
+@pytest.mark.skip('Причина тест сломан')
 def test_skip():
     res = sum([1, 2, 5])
     assert res == 6
+
+
+# Тест будет пропускаться если сейчас нечетная минута.
+@pytest.mark.skipif((bank_program.minutes_now%2 == 0), reason='если сейчас нечетная минута мы запускаем этот тест', )
+def test_skipif_odd():
+    res = sum([2, 2, 3])
+    assert res == 7
+
+# Тест будет пропускаться если сейчас четная минута.
+@pytest.mark.skipif((bank_program.minutes_now%2 == 1), reason='если сейчас четная минута мы запускаем этот тест', )
+def test_skipif_even():
+    res = sum([10, 2, 3])
+    assert res == 15
