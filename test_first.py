@@ -56,3 +56,10 @@ def test_skipif_even():
     """Тест будет пропускаться если сейчас четная минута."""
     res = sum([10, 2, 3])
     assert res == 15
+    
+    
+# @pytest.mark.
+# def test_skipif_even():
+#     """Тест """
+#     res = sum([10, 2, 3])
+#     assert res == 15
