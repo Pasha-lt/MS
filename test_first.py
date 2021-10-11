@@ -30,11 +30,24 @@ def test_bank_count(salary, how_much, mounths, cost_per_mounth, booltf):
 
 
 @pytest.mark.xfail()
-def test_xfail():
+def test_xfail_pass():
     """Тест будет пропускаться (помечатся как skip если провалиться и проходить как pass в случае выполнения)."""
     res = sum([1,2,3])
     assert res == 6
 
+
+@pytest.mark.xfail()
+def test_xfail_skip():
+    """Тест будет пропускаться (помечатся как skip если провалиться и проходить как pass в случае выполнения)."""
+    res = sum([1,2,3])
+    assert res == 7
+
+
+@pytest.mark.xfail(strict=True)
+def test_xfail_must_failed():
+    """Тест будет пропускаться (помечатся как skip если провалиться и как failed если пройдет успешно)."""
+    res = sum([1,2,3])
+    assert res == 6
 
 
 @pytest.mark.skip('Причина тест сломан')
